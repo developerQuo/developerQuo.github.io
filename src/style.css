@@ -100,3 +100,16 @@ button:focus-visible {
 .logout {
   display: none;
 }
+
+.inline-form {
+  display: flex;
+  gap: 1em;
+}
+
+#todo-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 0;
+  border-bottom: 1px solid #ccc;
+}

@@ -2,6 +2,7 @@ import './style.css'
 import { login, logout } from './auth.ts'
 import setupClock from './clock.ts'
 import { User } from '../type/user.ts'
+import todoList from './todo.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -11,9 +12,18 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <div class="card">
         <button id="logout" type="button">Logout</button>
       </div>
-      <p class="read-the-docs">
-        Click on the Vite and TypeScript logos to learn more
-      </p>
+      <h2>Todo List</h2>
+      <div id="todo-form">
+        <form class="inline-form">
+          <input name="title" type="text" placeholder="Title" required />
+          <textarea name="content" placeholder="Content" required></textarea>
+          <button>Add</button>
+        </form>
+      </div>
+      <div id="todo-list" class="card">
+        <ul>
+        </ul>
+      </div>
     </div>
     <div class="logout">
       <form>
@@ -38,6 +48,7 @@ setupClock(document.querySelector<HTMLDivElement>('#clock')!)
 const strUser = localStorage.getItem('user')
 if (strUser) {
   login()
+  todoList()
 } else {
   logout()
 }
