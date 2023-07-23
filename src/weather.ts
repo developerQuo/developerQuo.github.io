@@ -1,4 +1,5 @@
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
+console.log(API_KEY)
 
 const weather = document.querySelector('#weather span:first-child')
 const city = document.querySelector('#weather span:last-child')
