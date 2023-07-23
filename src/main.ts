@@ -1,28 +1,24 @@
 import './style.css'
 import { login, logout } from './auth.ts'
 import setupClock from './clock.ts'
-import { User } from '../type/user.ts'
 import todoList from './todo.ts'
+import { onChangeBg } from './background.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
     <h1>졸업 작품</h1>
     <div id="clock"></div>
     <div class="login">
-      <div class="card">
-        <button id="logout" type="button">Logout</button>
-      </div>
+      <button id="logout" type="button">Logout</button>
       <h2>Todo List</h2>
       <div id="todo-form">
         <form class="inline-form">
           <input name="title" type="text" placeholder="Title" required />
-          <textarea name="content" placeholder="Content" required></textarea>
+          <input name="content" placeholder="Content" required></input>
           <button>Add</button>
         </form>
       </div>
       <div id="todo-list" class="card">
-        <ul>
-        </ul>
+        <ul/>
       </div>
     </div>
     <div class="logout">
@@ -40,9 +36,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </div>
       </form>
     </div>
-  </div>
 `
 
+onChangeBg()
 setupClock(document.querySelector<HTMLDivElement>('#clock')!)
 
 const strUser = localStorage.getItem('user')
