@@ -1,4 +1,4 @@
-import { User } from '../type/user'
+import { User } from '../type/user.ts'
 
 function getUser() {
   const strUser = localStorage.getItem('user')
