@@ -26,10 +26,8 @@ function logout() {
     event.preventDefault()
 
     const values = new FormData(form)
-    // TODO: ecrypt password
     const user = {
       username: values.get('username'),
-      password: values.get('password'),
     }
     localStorage.setItem('user', JSON.stringify(user))
     visibleEl(el, false)
