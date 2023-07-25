@@ -20,11 +20,15 @@ jobs:
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
 
-      - name: Build project
-        run: npm run build
+      - name: access to secrets
+        run: |
+          echo "VITE_WEATHER_API_KEY=$VITE_WEATHER_API_KEY" >> .env
         env:
           VITE_WEATHER_API_KEY: ${{ secrets.VITE_WEATHER_API_KEY }}
-
+          
+      - name: Build project
+        run: npm run build
+        
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
         with:
